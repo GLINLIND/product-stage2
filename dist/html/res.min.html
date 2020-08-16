@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../dist/css/res.min.css">
+    <link rel="stylesheet" href="../../dist/lib/iconfont/iconfont.css">
+</head>
+
+<body>
+    <header id="header" class="container-fluid">
+        <div class="container clear">
+            <ul class="header-nav l">
+                <li><a href="#">小米商城</a><span>|</span></li>
+                <li><a href="#">MIUI</a><span>|</span></li>
+                <li><a href="#">IoT</a><span>|</span></li>
+                <li><a href="#">云服务</a><span>|</span></li>
+                <li><a href="#">金融</a><span>|</span></li>
+                <li><a href="#">有品</a><span>|</span></li>
+                <li><a href="#">小爱开放平台</a><span>|</span></li>
+                <li><a href="#">企业团购</a><span>|</span></li>
+                <li><a href="#">资质证照</a><span>|</span></li>
+                <li><a href="#">协议规则</a><span>|</span></li>
+                <li id="loadApp"><a href="www.mi.com">下载APP
+                        <div class="nav-img">
+                            <img src="../../dist/img/download.png" alt="">
+                        </div>
+                    </a><span>|</span></li>
+                <li><a href="#"> Select Location</a></li>
+            </ul>
+            <div class="header-che r">
+                <i class="iconfont icongouwuche word"></i>
+                <a href="../dist/html/car.min.html" class="myCar" name="myCar">购物车(0)</a>
+            </div>
+            <ul class="header-subnav r">
+                <li>
+                    <a href="./login.html" name="login">登录</a><span>|</span></li>
+                <li>
+                    <a href="./res.html">注册</a><span>|</span>
+                </li>
+                <li>
+                    <a href="../index.html" name="back">退出登录</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="register">
+        <div class="head">
+            <img src="../img/01.png" alt="">
+            <h1>注册小米账号</h1>
+        </div>
+        <div class="form">
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" name="userName" placeholder="请输入用户名" id="userName"><span name="spanName"></span><br>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" name="userPwd1" placeholder="请输入密码"><span name="spanPwd1"></span><br>
+            </div>
+            <div class="form-group">
+                <label for="password">确认密码</label>
+                <input type="password" name="userPwd2" placeholder="请确认密码"><span name="spanPwd2"></span><br>
+            </div>
+            <div class="form-group">
+                <label for="password" name="vc">验证码</label>
+                <input type="text" name="vc1" placeholder="请输入验证码" maxlength="6"><span name="spanVc"></span><br>
+            </div>
+        </div>
+    </div>
+    <button name="res">注册</button>
+
+<script src="../../dist/js/jquery-1.12.4.min.js"></script>
+<script src="../../dist/js/jquery.cookie.min.js"></script>
+<script src="../../dist/js/tool.min.js"></script>
+<script>
+    //设定验证码
+    let str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ0123456789';
+
+    function setVc() {
+        let newStr = '';
+        for (let i = 1; i <= 6; i++) {
+            let num = parseInt(Math.random() * str.length);
+            if (newStr.indexOf(str[num]) === -1) {
+                newStr += str[num];
+            } else {
+                i--;
+            }
+        }
+        return newStr;
+    }
+    //将验证码写入页面中
+    $('[name="spanVc"]').html(setVc());
+    $('[name="spanVc"]').click(function () {
+        $('[name="spanVc"]').html(setVc());
+    })
+
+    //完成注册功能
+    $('[name="res"]').click(function () {
+        let userName = $('[name="userName"]').val();
+        let userPwd1 = $('[name="userPwd1"]').val();
+        let userPwd2 = $('[name="userPwd2"]').val();
+        let userVc = $('[name="vc1"]').val();
+
+        // 判断用户名是否合法 (2-10位汉字)
+        // console.log($('[name="userName"]'));
+        // $('[name="userName"]').blur(function(){
+        //     console.log(this)
+        // })
+        let re1 = /^[\u4e00-\u9fe5]{2,10}$/;
+        if (!re1.test(userName)) {
+            alert("请输入2~10位的中文！");
+            return;
+        }
+
+        // 密码 (2-16位数字)
+        let re2 = /^\d{2,16}$/;
+        if (!re2.test(userPwd1)) {
+            alert('请输入2-16位数字密码');
+            return;
+        }
+
+        // 密码 确认密码不为空
+        if (!userPwd1) {
+            alert('密码不能为空');
+            return;
+        }
+
+        if (!userPwd2) {
+            alert('确认密码不为空');
+            return;
+        }
+
+        // 两个密码必须一致
+        if (userPwd1 !== userPwd2) {
+            window.alert('两次密码不一致');
+            return false;
+        }
+
+        // 判断验证码
+        if (userVc.toLowerCase() !== $('[name="spanVc"]').html().toLowerCase()) {
+            window.alert('验证码不正确');
+            return false;
+        }
+
+        // 判断cookie中是否有该用户名
+        // 获取cookie
+        let cookieStr = $.cookie('registor') ? $.cookie('registor') : '';
+        let cookieObj = convertCookieStrToCookieObj(cookieStr);
+        if (userName in cookieObj) {
+            window.alert('用户名已存在，点击跳转登录页面');
+            window.location.href = '../../dist/html/login.min.html';
+        } else {
+            let result = window.confirm('注册成功，点击跳转登录页面');
+            if (result === true) {
+                location.href = '../../dist/html/login.min.html';
+            }
+        }
+
+        // 将用户名密码存入对象
+        cookieObj[userName] = userPwd1;
+        // 重新创建cookie
+        $.cookie('registor', JSON.stringify(cookieObj), { expires: 7, path: '/' });
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 正确显示网络来源图片 -->
+    <meta name="referrer" content="never">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../dist/css/detail.min.css">
+    <link rel="stylesheet" href="../../dist/lib/iconfont/iconfont.css">
+    <!-- <style>
+        /* css reset */
+        *{ 
+            margin:0; padding:0;
+        }
+
+        ul,ol{ 
+            list-style: none;
+        }
+
+        a{ 
+            text-decoration: none;
+             color:#424242;
+        }
+
+        img{ 
+            display: block;
+        }
+
+        body{ 
+            font-family: Arial; 
+            font-size:16px;
+        }
+
+        h1,h2,h3{ 
+            font-size:14px;
+        }
+
+        /* css common */
+        .l{ 
+            float:left;
+        }
+
+        .r{ 
+            float:right;
+        }
+
+        .clear:after{ 
+            content:""; 
+            display:block;
+            clear:both;
+        }
+
+        .container{ 
+            width:1226px;
+            margin:0 auto;
+            position: relative;
+        }
+
+        .container-fluid{ 
+            position: relative;
+        }
+        
+        /* css header */
+        #header{ 
+            background:#333333;
+            height:40px; 
+            line-height: 40px; 
+            color:#b0b0b0;
+        }
+
+        #header .header-nav{ 
+            font-size:0; 
+        }
+
+        #header .header-nav a{ 
+            font-size:12px; 
+            color:#b0b0b0;
+        }
+
+        #header .header-nav span{ 
+            font-size:12px; 
+            margin:0 8px;
+        }
+
+        #header .header-che button{
+            width: 120px;
+            height: 40px;
+            color: black;
+            text-align: center;
+            background: #b0b0b0;
+            margin-left: 24px;
+        }
+
+        #header .header-subnav{
+            font-size:0;
+        }
+
+        #header .header-subnav a{ 
+            font-size:12px; 
+            color:#b0b0b0;
+        }
+
+        #header .header-subnav span{ 
+            font-size:12px; 
+            margin:0 8px;
+        }
+
+        /* css logo */
+        #logo{ 
+            height: 90px; 
+            margin-top:10px;
+        }
+
+        #logo .logo-pic{ 
+            width:55px; 
+            height:55px; 
+            margin-top:12px; 
+            margin-right: 189px;
+        }
+
+        #logo .logo-pic img{ 
+            width:55px; 
+            height:55px;
+            position: absolute;
+        }
+
+        #logo .logo-pic a:nth-of-type(2){
+            display: none;
+        }
+
+        #logo .logo-nav{ 
+            font-size:0; 
+            line-height: 90px;
+        }
+
+        #logo .logo-nav a{ 
+            font-size:16px; 
+            margin-right:20px;
+        }
+
+        #logo .logo-search{ 
+            margin-top:15px; 
+            width:294px; 
+            height:48px; 
+            border:1px #e0e0e0 solid; 
+            display: flex; 
+            position: relative;
+        }
+
+        #logo .logo-search input{ 
+            flex:1; 
+            border:none; 
+            outline: none; 
+            font-size:18px; 
+            text-indent: 5px;
+        }
+
+        #logo .logo-search .logo-search-btn{
+             width:50px; 
+             height:48px; 
+             text-align: center; 
+             line-height: 48px; 
+             border-left:1px #e0e0e0 solid;
+        }
+
+        #logo .logo-search .logo-search-tip{ 
+            position: absolute; 
+            left:50px; top:15px;
+        }
+
+        #logo .logo-search-tip a{ 
+            background:#ccc; 
+            padding:3px 5px;
+        }
+
+        /* nav css */
+        #nav{
+            height: 60px;
+            border-top: 1px rgb(177, 179, 182) solid;
+            box-shadow: 0 2px 5px lightgrey;
+        }
+        
+        #navs{
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* detail css */
+        #datail{
+            content:""; 
+            display:block;
+            clear:both;
+        }
+
+        .banner{
+            width: 560px;
+            height: 600px;
+            border: 3px solid rgb(201, 202, 200);
+            margin: 40px auto;
+            position: relative;
+            float: left;
+        }
+
+        .list{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .list li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: all 2s linear ;
+        }
+
+        .list img{
+            width: 560px;
+            height: 560px;
+        }
+
+        .banner ol{
+            height: 40px;
+            background: rgba(0, 0, 0, .4);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            z-index: 100;
+        }
+
+        .banner ol li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+
+        .banner ol li.active{
+            background: #fa721e;
+        }
+
+        .banner div{
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner div a{
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            font-weight: 900;
+            color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content{
+            float: right;
+            width: 600px;
+            margin-top: 40px;
+            border: 3px solid rgb(201, 202, 200);
+        }
+
+        .content .content-title1{
+            font-size: 26px;
+            font-weight: normal;
+        }
+        
+        .content .self{
+            color: #fa721e;
+            padding: 10px;
+        }
+        
+        .content .price{
+            height: 30px;
+            /* border: lightpink 1px solid; */
+            margin-top: 5px;
+            line-height: 30px;
+        }
+        
+        .content .price span:nth-of-type(1){
+            color: #fa721e;
+            padding: 10px;
+            font-size: 20px;
+        }
+        
+        .content .price span:nth-of-type(2){
+            color: grey;
+            font-size: 12px;
+        }
+
+        .content .time{
+            height: 44px;
+            background: #fa721e;
+            line-height: 44px;
+            margin-top: 20px;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        
+        .content span:nth-of-type(1){
+            margin-left: 25px;
+        }
+        .content span:nth-of-type(2){
+            margin-right: 25px;
+        }
+        
+        .content .address{
+            height: 80px;
+            border: 1px solid lightgrey;
+            line-height: 80px;
+            margin-top: 15px;
+        }
+
+        .address span:nth-of-type(2){
+            margin-left: 25px;
+        }
+
+
+        .content .content-title2{
+            font-size: 22px;
+            font-weight: normal;
+            padding: 10px;
+        }
+
+        .content .types button{
+            width: 160px;
+            padding: 10px;
+            border: 1px solid #fa721e;
+            margin: 15px;
+        }
+
+        .content .content-title3{
+            font-size: 22px;
+            font-weight: normal;
+            padding: 10px;
+        }
+
+        .content .buys button:nth-of-type(1){
+            width: 140px;
+            padding: 10px;
+            background: orange;
+            margin: 15px;
+            border-radius: 15%;
+            font-size: 16px;
+        }
+        .content .buys button:nth-of-type(2){
+            width: 140px;
+            padding: 10px;
+            background: rgb(255, 81, 0);
+            margin: 15px;
+            border-radius: 15%;
+            font-size: 16px;
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- <header id="header" class="container-fluid">
+        <div class="container clear">
+            <div class="header-nav l">
+                <a href="#">小米商城</a><span>|</span>
+                <a href="#">MIUI</a><span>|</span>
+                <a href="#">IoT</a><span>|</span>
+                <a href="#">云服务</a><span>|</span>
+                <a href="#">金融</a><span>|</span>
+                <a href="#">有品</a><span>|</span>
+                <a href="#">小爱开放平台</a><span>|</span>
+                <a href="#">企业团购</a><span>|</span>
+                <a href="#">资质证照</a><span>|</span>
+                <a href="#">协议规则</a><span>|</span>
+                <a href="#">下载APP</a><span>|</span>
+                <a href="#"> Select Location</a>
+            </div>
+            <div class="header-che r">
+                <i class="iconfont icongouwuchekong"></i><a href="car.html"> <button name="myCar" style="opacity: 0.6;">购物车</button></a>
+            </div>
+            <div class="header-subnav r">
+                <a href="./login.html" name="login">登录</a><span>|</span>
+                <a href="./res.html">注册</a><span>|</span>
+                <a href="../index.html" name="back">退出登录</a>
+            </div>
+        </div>
+    </header>
+    <div id="logo" class="container clear">
+        <div class="logo-pic l">
+            <a href="#"><img src="./img/01.png" alt=""></a>
+            <a href="#"><img src="./img/02.png" alt=""></a>
+        </div>
+        <div class="logo-nav l">
+            <a href="#">小米手机</a>
+            <a href="#">Redmi 红米</a>
+            <a href="#">电视</a>
+            <a href="#">笔记本</a>
+            <a href="#">家电</a>
+            <a href="#">路由器</a>
+            <a href="#"> 智能硬件</a>
+            <a href="#"> 服务</a>
+            <a href="#"> 社区</a>
+        </div>
+        <div class="logo-search r">
+            <input type="text">
+            <div class="logo-search-btn"><i class="iconfont iconfangdajing"></i></div>
+            <div class="logo-search-tip">
+                <a href="#">小米9 Pro 5G</a>
+                <a href="#">redmi Note 8</a>
+            </div>
+        </div>
+    </div> -->
+    <header id="header" class="container-fluid">
+        <div class="container clear">
+            <ul class="header-nav l">
+                <li><a href="#">小米商城</a><span>|</span></li>
+                <li><a href="#">MIUI</a><span>|</span></li>
+                <li><a href="#">IoT</a><span>|</span></li>
+                <li><a href="#">云服务</a><span>|</span></li>
+                <li><a href="#">金融</a><span>|</span></li>
+                <li><a href="#">有品</a><span>|</span></li>
+                <li><a href="#">小爱开放平台</a><span>|</span></li>
+                <li><a href="#">企业团购</a><span>|</span></li>
+                <li><a href="#">资质证照</a><span>|</span></li>
+                <li><a href="#">协议规则</a><span>|</span></li>
+                <li id="loadApp"><a href="www.mi.com">下载APP
+                        <div class="nav-img">
+                            <img src="../../dist/img/download.png" alt="">
+                        </div>
+                    </a><span>|</span></li>
+                <li><a href="#"> Select Location</a></li>
+            </ul>
+            <div class="header-che r">
+                <i class="iconfont icongouwuche word"></i>
+                <a href="../dist/html/car.min.html" class="myCar" name="myCar">购物车(0)</a>
+            </div>
+            <ul class="header-subnav r">
+                <li>
+                    <a href="./login.html" name="login">登录</a><span>|</span></li>
+                <li>
+                    <a href="./res.html">注册</a><span>|</span>
+                </li>
+                <li>
+                    <a href="../index.html" name="back">退出登录</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="logo" class="container clear">
+        <div class="logo-pic l">
+            <a href="#"><img src="../../dist/img/01.png" alt=""></a>
+            <a href="#"><img src="../../dist/img/02.png" alt=""></a>
+        </div>
+        <div class="logo-heart l">
+            <a href="#"><img src="../../dist/img/heart.gif" alt=""></a>
+        </div>
+        <ul class="logo-nav l">
+            <li><a href="#">小米手机</a></li>
+            <li><a href="#">Redmi 红米</a></li>
+            <li><a href="#">电视</a></li>
+            <li><a href="#">笔记本</a></li>
+            <li><a href="#">家电</a></li>
+            <li><a href="#">路由器</a></li>
+            <li><a href="#"> 智能硬件</a></li>
+            <li><a href="#"> 服务</a></li>
+            <li><a href="#"> 社区</a></li>
+        </ul>
+        <div class="logo-search r">
+            <input type="text">
+            <div class="logo-search-btn"><i class="iconfont iconfangdajing"></i></div>
+        </div>
+    </div>
+    <div id="content">
+        <div id="nav" class="container-fluid">
+            <div id="navs" class="container">
+                <div class="nav-left">
+                    Redmi K30 | <a href="#"> Redmi K30 5G</a>
+                </div>
+                <div class="nav-right">
+                    <a href="#">概述</a>|<a href="#">参数</a> | <a href="#">F码通道</a> | <a href="#">咨询客服</a> | <a
+                        href="#">用户评价</a>
+                </div>
+            </div>
+        </div>
+        <div id="detail" class="container">
+            <!-- <div class="banner">
+                <ul class="list">
+                    <li style="opacity: 1;"><a href="#"><img src="../img/first.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/second.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/third.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/forth.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/fifth.jpg" alt=""></a></li>
+                </ul>
+                <ol>
+                </ol>
+                <div>
+                    <a href="JavaScript:;" name="left">&lt;</a>
+                    <a href="JavaScript:;" name="right">&gt;</a>
+                </div>
+            </div>
+            <div class="content" id="good-list">
+                <h1 class="content-title1">Redmi K30</h1>
+                <p> <a href="#"
+                        style="color: #fa721e;">「6GB+128GB闪降100元，到手价仅1599元；8GB+128GB购机赠89元小米双单元半入耳式耳机；购机赠价值470元善诊体检卡；购机享延保碎屏保5折；加1元得50G云空间月卡」</a><span
+                        style="color: grey;"> 120Hz高帧率流速屏 / 索尼6400万前后六摄 / 6.67''小孔径全面屏 / 最高可选8GB+256GB大存储 / 高通骁龙730G处理器 /
+                        3D四曲面玻璃机身 / 4500mAh+27W快充 / 多功能NFC</span>
+                </p>
+                <p class="self">小米自营</p>
+                <p class="price">
+                    <span>1599元</span><span style="text-decoration: line-through;">￥1699</span>
+                </p>
+                <p class="time">
+                    <span>秒杀</span>
+                    <span>据结束11时55分32秒</span>
+                </p>
+                <p class="address">
+                    <span>北京 北京市 东城区 安定门街道 &nbsp;<a href="#" style="color: #fa721e;">修改</a></span>
+                    <span style="color: #fa721e;">有现货</span>
+                </p>
+                <h3 class="content-title2">选择版本</h3>
+                <div class="types">
+                    <button type="button">6GB+128GB 1599元</button>
+                    <button type="button">8GB+128GB 1899元</button>
+                    <button type="button">6GB+256GB 2199元</button>
+                </div>
+                <h3 class="content-title3">选择颜色</h3>
+                <div class="types">
+                    <button type="button">深海微光</button>
+                    <button type="button">紫玉幻境</button>
+                    <button type="button">花影惊鸿</button>
+                </div>
+                <p class="buys">
+                    <button type="button">
+                        <a href="javascript:;" class="btn btn-warning btn-lg" role="button">立即购买</a>
+                    </button>
+                    <button type="button">
+                        <a href="#" class="btn btn-danger btn-lg" role="button" class="addToCar">加入购物车</a>
+                    </button>
+                </p>
+            </div> -->
+        </div>
+    </div>
+    <input type="button" value="购物车(0)" id="buy">
+
+    <script src="../../dist/js/jquery-1.12.4.min.js"></script>
+    <script src="../../dist/js/jquery.cookie.min.js"></script>
+    <script src="../../dist/js/tool.min.js"></script>
+    <script src="../../dist/js/jquery.fly.min.js"></script>
+    <script src="../../dist/js/requestAnimationFrame.min.js"></script>
+    <script src="../../dist/js/cookie.min.js"></script>
+
+    <script>
+        // 获取地址栏信息
+        let dataUrl = decodeURIComponent(window.location.search);
+        // console.log(dataUrl);
+        dataUrl = dataUrl.substr(1);
+        // console.log(dataUrl);
+
+        let arr = dataUrl.split('=');
+        // console.log(arr);
+
+        $.get('../json/json.json', (data) => {
+            // console.log(data)
+            let str = '';
+            data.data.forEach(function (item) {
+                // console.log(item.buy);
+                if (arr[1] === item.good_id) {
+                    str = `
+                <div id="nav" class="container-fluid">
+            <div id="navs" class="container">
+                <div class="nav-left">
+                    ${item.shop_detail} | <a href="#"> Redmi K30 5G</a>
+                </div>
+                <div class="nav-right">
+                    <a href="#">概述</a>|<a href="#">参数</a> | <a href="#">F码通道</a> | <a href="#">咨询客服</a> | <a
+                        href="#">用户评价</a>
+                </div>
+            </div>
+        </div>
+        <div id="detail" class="container">
+            <div class="banner">
+                <ul class="list">
+                    <li style="opacity: 1;"><a href="#"><img src="${item.url}" id="good_img" alt=""></a></li>
+                    <li><a href="#"><img src="../img/second.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/third.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/forth.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="../img/fifth.jpg" alt=""></a></li>
+                </ul>
+                <ol>
+                </ol>
+                <div>
+                    <a href="JavaScript:;" name="left">&lt;</a>
+                    <a href="JavaScript:;" name="right">&gt;</a>
+                </div>
+            </div>
+            <div class="content" id="good-list">
+                <h1 class="content-title1" id="good_name">${item.shop_detail}</h1>
+                    <p> <a href="#"
+                            style="color: #fa721e;">${item.content}</a><span
+                            style="color: grey;">${item.type}</span>
+                    </p>
+                    <p class="self">小米自营</p>
+                    <p class="price">
+                        <span id="good_price">${item.pre_price}</span><span style="text-decoration: line-through;">￥${item.old_price}</span>
+                    </p>
+                    <p class="time">
+                        <span>秒杀</span>
+                        <span>据结束11时55分32秒</span>
+                    </p>
+                    <p class="address">
+                        <span>${item.address}<a href="#" style="color: #fa721e;">修改</a></span>
+                        <span style="color: #fa721e;">有现货</span>
+                    </p>
+                    <h3 class="content-title2">选择版本</h3>
+                    <div class="types">
+                        <button type="button">6GB+128GB 1599元</button>
+                        <button type="button">8GB+128GB 1899元</button>
+                        <button type="button">6GB+256GB 2199元</button>
+                    </div>
+                    <h3 class="content-title3">选择颜色</h3>
+                    <div class="types">
+                        <button type="button">${item.color1}</button>
+                        <button type="button">${item.color2}</button>
+                        <button type="button">${item.color3}</button>
+                    </div>
+                    <p class="buys">
+                        <button type="button">
+                            <a href="javascript:;" class="btn btn-warning btn-lg" role="button">立即购买</a>
+                        </button>
+                        <button type="button">
+                            <a href="javascript:;" class="btn btn-danger btn-lg addToCar" role="button" name="car" data-good-id = "${item.good_id}">加入购物车</a>
+                        </button>
+                    </p>
+                </div>
+            </div>
+                `;
+                }
+            })
+
+            $('#content').html(str);
+
+            // 点击购物车跳转
+            $('#buy').on('click', function () {
+                location.href = './car.html';
+            })
+
+            // 初始化
+            init();
+
+            // 点击加入购物车获取信息
+            // console.log($('.addToCar').attr("data-good-id"));
+            // console.log($('#good_img').img);
+            $('.addToCar').on('click', function (event) {
+                // 获取cookie 看是否有login
+                const cookieObj = getCookieObj(document.cookie);
+                console.log(cookieObj);
+                if (cookieObj['login'] === undefined) {
+                    let bool = window.confirm('您还没有登录,跳转登录页面');
+                    if (bool === true) {
+                        window.location.href = `./login.html?${window.location.href}`;
+                    }
+                } else if (cookieObj['login'] === '1') {
+
+                    // 获取id
+                    let good_id = $(this).attr('data-good-id');
+                    // console.log(good_id)
+                    // console.log($('#good_img').attr('src'));
+                    // 看cookie中是否存在
+                    let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                    // 转为obj
+                    let cookieObj = convertCookieStrToCookieObj(cookieStr);
+                    console.log(cookieObj);
+                    // 看obj中是否有商品
+                    if (good_id in cookieObj) {
+                        cookieObj[good_id].num++;
+                    } else {
+                        cookieObj[good_id] = {
+                            "id": $('.addToCar').attr('data-good-id'),
+                            "img": $('#good_img').attr('src'),
+                            "name": $('#good_name').html(),
+                            "price": Number($('#good_price').html()),
+                            "num": 1,
+                        }
+                    }
+
+                    // 重新加入cookie
+                    $.cookie('carts', JSON.stringify(cookieObj), { expires: 7, path: '/' });
+
+                    // 解决购物车数量问题
+                    // 获取购物车
+                    $buy = $('#buy');
+                    // console.log($buy);
+                    // 获取img飞入
+                    let $img = $('#good_img').clone().css({ width: 100, height: 100 });
+                    $img.fly({
+                        start: {
+                            left: event.pageX,
+                            top: event.pageY
+                        },
+                        end: {
+                            left: $buy.offset().left,
+                            top: $buy.offset().top,
+                            width: 0,
+                            height: 0
+                        },
+                        onEnd: function () {
+                            let str = $buy.val();
+                            let re = /(\d+)/;
+                            let num = parseInt(re.exec(str)[0]);
+                            // console.log(num)
+                            $buy.val(`购物车(${++num})`);
+                        }
+                    })
+                }
+
+
+
+            })
+
+            // 初始化cookie
+            function init() {
+                // 看cookie中是否存在
+                let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                // 转为obj
+                let cookieObj = convertCookieStrToCookieObj(cookieStr);
+
+                let sum = 0;
+                for (let key in cookieObj) {
+                    sum += cookieObj[key].num;
+                }
+
+                $('#buy').val(`购物车(${sum})`);
+            }
+        })
+    </script>
+</body>
+
+</html>

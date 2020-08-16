@@ -1,0 +1,145 @@
+@import 'public';
+
+/* css reset */
+
+body {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 14px;
+}
+
+
+/* car css */
+#car .car-1 {
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    line-height: 50px;
+    text-align: right;
+}
+
+#car .car-box {
+    width: 100%;
+    height: 50px;
+}
+
+#car .car-box1 {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px silver solid;
+}
+
+#car .car-box1 .one {
+    text-align: center;
+    margin-left: 10px;
+}
+
+#car .car-box1 span:nth-of-type(1) {
+    width: 20%;
+    height: 50px;
+    text-align: center;
+}
+
+#car .car-box1 span:nth-of-type(2) {
+    width: 10%;
+    height: 50px;
+    text-align: center;
+}
+
+#car .car-box1 span:nth-of-type(3) {
+    width: 20%;
+    height: 50px;
+    text-align: center;
+}
+
+#car .car-box1 span:nth-of-type(4) {
+    width: 9%;
+    height: 50px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+#car .car-box1 span:nth-of-type(5) {
+    width: 10%;
+    height: 50px;
+    text-align: center;
+}
+
+#car .car-box1 span:nth-of-type(6) {
+    width: 10%;
+    height: 50px;
+    text-align: center;
+}
+
+#car .car-box2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px silver solid;
+}
+
+#car .car-box2 .two {
+    margin-left: 30px;
+}
+
+#car .car-box2 .three {
+    margin-right: 10px;
+}
+
+#car .car-box2 img {
+    width: 100px;
+    height: 100px;
+}
+
+#car .car-box2 span:nth-of-type(1) {
+    width: 15%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+}
+
+#car .car-box2 span:nth-of-type(2) {
+    
+    margin-right: 100px;
+}
+
+#car .car-box2 span:nth-of-type(4) {
+    margin-right: 50px;
+}
+
+#car .car-box .total {
+    margin-top: 50px;
+    margin-left: 800px;
+}
+
+#car .car-box .total span:nth-of-type(1) {
+    font-size: 14px;
+}
+
+#car .car-box .total span:nth-of-type(2) {
+    font-size: 30px;
+    color: #fa721e;
+}
+
+#car .car-box .total button {
+    width: 200px;
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+    background: #fa721e;
+    color: white;
+    margin-left: 20px;
+}
+
+#car .blank{
+    display: none;
+}

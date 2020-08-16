@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../dist/css/login.min.css">
+    <link rel="stylesheet" href="../../dist/lib/iconfont/iconfont.css">
+</head>
+
+<body>
+    <header id="header" class="container-fluid">
+        <div class="container clear">
+            <ul class="header-nav l">
+                <li><a href="#">小米商城</a><span>|</span></li>
+                <li><a href="#">MIUI</a><span>|</span></li>
+                <li><a href="#">IoT</a><span>|</span></li>
+                <li><a href="#">云服务</a><span>|</span></li>
+                <li><a href="#">金融</a><span>|</span></li>
+                <li><a href="#">有品</a><span>|</span></li>
+                <li><a href="#">小爱开放平台</a><span>|</span></li>
+                <li><a href="#">企业团购</a><span>|</span></li>
+                <li><a href="#">资质证照</a><span>|</span></li>
+                <li><a href="#">协议规则</a><span>|</span></li>
+                <li id="loadApp"><a href="www.mi.com">下载APP
+                        <div class="nav-img">
+                            <img src="../../dist/img/download.png" alt="">
+                        </div>
+                    </a><span>|</span></li>
+                <li><a href="#"> Select Location</a></li>
+            </ul>
+            <div class="header-che r">
+                <i class="iconfont icongouwuche word"></i>
+                <a href="../dist/html/car.min.html" class="myCar" name="myCar">购物车(0)</a>
+            </div>
+            <ul class="header-subnav r">
+                <li>
+                    <a href="./login.html" name="login">登录</a><span>|</span></li>
+                <li>
+                    <a href="./res.html">注册</a><span>|</span>
+                </li>
+                <li>
+                    <a href="../index.html" name="back">退出登录</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="login">
+        <form>
+            <div class="head">
+                <img src="../img/01.png" alt="">
+                <p>
+                    <span>小米商城</span><br>
+                    <span>让每个人都能享受科技的乐趣</span>
+                </p>
+            </div>
+            <div class="forms">
+                <h2>账号登录</h2>
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" name="username" placeholder="请输入用户名"><span></span><br>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" name="userpwd" placeholder="请输入密码"><span></span><br>
+                </div>
+            </div>
+            <button>登录</button>
+        </form>
+    </div>
+
+    <script src="../../dist/js/jquery-1.12.4.min.js"></script>
+    <script src="../../dist/js/jquery.cookie.min.js"></script>
+    <script src="../../dist/js/tool.min.js"></script>
+    <script src="../../dist/js/cookie.min.js"></script>
+    <script>
+        //form表单提交时，发送ajax请求，获取登录结果
+        $('form').submit(function (e) {
+            e.preventDefault();
+
+            //获取输入的数据
+            let username = $('[name="username"]').val();
+            let userpwd = $('[name="userpwd"]').val();
+
+            //验证判断
+            if (username === '') {
+                window.alert('用户名不能为空,请输入用户名');
+                return false;
+            }
+            if (userpwd === '') {
+                window.alert('用户密码不能为空,请输入用户名');
+                return false;
+            }
+
+            // 获取cookie
+            let cookieStr = $.cookie('registor') ? $.cookie('registor') : '';
+            let cookieObj = convertCookieStrToCookieObj(cookieStr);
+
+            if (username in cookieObj) {
+                if (cookieObj[username] === userpwd) {
+                    alert('登陆成功');
+                    let str = decodeURIComponent(window.location.search);
+                    str = str.substr(1);
+                    console.log(str);
+                    if(str === ''){
+                        window.location.href ='../../dist/index.html';
+                    }else{
+
+                        window.location.href = str;
+                    }
+
+                    // 登录成功,设定cookie
+                    setCookies('login' , 1 , 7*24*60*60);
+                } else {
+                    alert('密码输入错误');
+                }
+            } else {
+                alert('用户名不存在');
+            }
+        })
+    </script>
+</body>
+
+</html>

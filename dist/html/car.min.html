@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../dist/css/car.min.css">
+    <link rel="stylesheet" href="../../dist/lib/iconfont/iconfont.css">
+</head>
+
+<body>
+    <header id="header" class="container-fluid">
+        <div class="container clear">
+            <ul class="header-nav l">
+                <li><a href="#">小米商城</a><span>|</span></li>
+                <li><a href="#">MIUI</a><span>|</span></li>
+                <li><a href="#">IoT</a><span>|</span></li>
+                <li><a href="#">云服务</a><span>|</span></li>
+                <li><a href="#">金融</a><span>|</span></li>
+                <li><a href="#">有品</a><span>|</span></li>
+                <li><a href="#">小爱开放平台</a><span>|</span></li>
+                <li><a href="#">企业团购</a><span>|</span></li>
+                <li><a href="#">资质证照</a><span>|</span></li>
+                <li><a href="#">协议规则</a><span>|</span></li>
+                <li id="loadApp"><a href="www.mi.com">下载APP
+                        <div class="nav-img">
+                            <img src="../../dist/img/download.png" alt="">
+                        </div>
+                    </a><span>|</span></li>
+                <li><a href="#"> Select Location</a></li>
+            </ul>
+            <div class="header-che r">
+                <i class="iconfont icongouwuche word"></i>
+                <a href="../dist/html/car.min.html" class="myCar" name="myCar">购物车(0)</a>
+            </div>
+            <ul class="header-subnav r">
+                <li>
+                    <a href="./login.html" name="login">登录</a><span>|</span></li>
+                <li>
+                    <a href="./res.html">注册</a><span>|</span>
+                </li>
+                <li>
+                    <a href="../index.html" name="back">退出登录</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="logo" class="container clear">
+        <div class="logo-pic l">
+            <a href="#"><img src="../../dist/img/01.png" alt=""></a>
+            <a href="#"><img src="../../dist/img/02.png" alt=""></a>
+        </div>
+        <div class="logo-heart l">
+            <a href="#"><img src="../../dist/img/heart.gif" alt=""></a>
+        </div>
+        <ul class="logo-nav l">
+            <li><a href="#">小米手机</a></li>
+            <li><a href="#">Redmi 红米</a></li>
+            <li><a href="#">电视</a></li>
+            <li><a href="#">笔记本</a></li>
+            <li><a href="#">家电</a></li>
+            <li><a href="#">路由器</a></li>
+            <li><a href="#"> 智能硬件</a></li>
+            <li><a href="#"> 服务</a></li>
+            <li><a href="#"> 社区</a></li>
+        </ul>
+        <div class="logo-search r">
+            <input type="text">
+            <div class="logo-search-btn"><i class="iconfont iconfangdajing"></i></div>
+            <ul class="logo-search-tip">
+                <li><a href="#">小米9 Pro 5G</a></li>
+                <li><a href="#">redmi Note 8</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="leter" class="container-fluid"></div>
+    <div id="car" class="container">
+        <ul class="car-box">
+            <!-- <li class="car-box1">
+                <label class="one">
+                    <input type="checkbox">
+                    全选
+                </label>
+                <span></span>
+                <span>商品名称</span>
+                <span>单价</span>
+                <span>数量</span>
+                <span>小计</span>
+                <span>操作</span>
+            </li>
+            <li class="car-box2">
+                <label class="two">
+                    <input type="checkbox">
+                </label>
+                <a href="#"><img src="../img/a.jpg" alt=""></a>
+                <span>小米10青春版 50倍潜望式倍焦，轻薄5G手机</span>
+                <span>1288元</span>
+                <div class="three">
+                    <button type="button">-</button>
+                    <button type="button">1</button>
+                    <button type="button">+</button>
+                </div>
+                <span>1288</span>
+                <span><button>删除</button></span>
+            </li>
+            <li class="car-box2">
+                <label class="two">
+                    <input type="checkbox">
+                </label>
+                <a href="#"><img src="../img/b.jpg" alt=""></a>
+                <span>小米10青春版 50倍潜望式倍焦，轻薄5G手机</span>
+                <span>1288元</span>
+                <div class="three">
+                    <button type="button">-</button>
+                    <button type="button">1</button>
+                    <button type="button">+</button>
+                </div>
+                <span>1288</span>
+                <span><button>删除</button></span>
+            </li>
+            <li class="car-box2">
+                <label class="two">
+                    <input type="checkbox">
+                </label>
+                <a href="#"><img src="../img/c.jpg" alt=""></a>
+                <span>小米10青春版 50倍潜望式倍焦，轻薄5G手机</span>
+                <span>1288元</span>
+                <div class="three">
+                    <button type="button">-</button>
+                    <button type="button">1</button>
+                    <button type="button">+</button>
+                </div>
+                <span>1288</span>
+                <span><button>删除</button></span>
+            </li>
+            <li class="car-box2">
+                <label class="two">
+                    <input type="checkbox">
+                </label>
+                <a href="#"><img src="../img/d.jpg" alt=""></a>
+                <span>小米10青春版 50倍潜望式倍焦，轻薄5G手机</span>
+                <span>1288元</span>
+                <div class="three">
+                    <button type="button">-</button>
+                    <button type="button">1</button>
+                    <button type="button">+</button>
+                </div>
+                <span>1288</span>
+                <span><button>删除</button></span>
+            </li>
+            <li class="total">
+                <span>合计：</span>
+                <span>3000元</span>
+                <label>
+                    <button type="button">去结算</button>
+                </label>
+            </li> -->
+        </ul>
+        <div class="blank">
+            您的购物车空空如也~
+        </div>
+    </div>
+
+    <script src="../../dist/js/jquery-1.12.4.min.js"></script>
+    <script src="../../dist/js/jquery.cookie.min.js"></script>
+    <script src="../../dist/js/tool.min.js"></script>
+    <script>
+        class Cart {
+            constructor() {
+                this.addEvent();
+            }
+            addEvent() {
+                let PAY = 0;
+                //1,先获取cookie中的数据信息
+                let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                // console.log(cookieStr)
+                if (!cookieStr) {
+                    $('.blank').css('display', 'block');
+                } else {
+                    // 将字符串转为对象
+                    let cookieObj = convertCookieStrToCookieObj(cookieStr);
+                    // console.log(cookieObj);
+
+                    let str = `
+            <li class="car-box1">
+                <span>图片</span>
+                <span>商品名称</span>
+                <span>单价</span>
+                <span>数量</span>
+                <span>小计</span>
+                <span>操作</span>
+            </li>
+    `;
+
+                    // 遍历对象布局
+                    for (let key in cookieObj) {
+                        // 获取商品
+                        let good = cookieObj[key];
+                        console.log(good)
+                        str += `
+            <li class="car-box2" data-good-id="${good.id}">
+                <a href="#"><img src="${good.img}" alt=""></a>
+                <span>${good.name}</span>
+                <span>${good.price}</span>
+                <div class="three">
+                    <button type="button" class="minus">-</button>
+                    <button type="button">${good.num}</button>
+                    <button type="button" class="plus">+</button>
+                </div>
+                <span>${good.price * good.num}</span>
+                <span><button class="del">删除</button></span>
+            </li>`
+
+                        PAY += parseInt(good.price) * parseInt(good.num);
+                        // console.log(PAY)
+
+
+                    }
+
+                    str += `<li class="total">
+                <span>合计：</span>
+                <span id="total">${parseInt(PAY)}元</span>
+                <label>
+                    <button type="button">去结算</button>
+                </label>
+            </li>
+            `
+                    $('.car-box').html(str);
+
+                }
+
+                $('.minus').on('click', function () {
+
+                    // 获取商品id
+                    let good_id = $(this).parent().parent().attr('data-good-id');
+                    // console.log(good_id);
+
+                    // 找cookie中的good_id--
+                    let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                    let cookieObj = convertCookieStrToCookieObj(cookieStr);
+                    // console.log(cookieObj[good_id].num)
+                    if (cookieObj[good_id].num > 1) {
+                        cookieObj[good_id].num--;
+                    }
+
+                    $.cookie('carts', JSON.stringify(cookieObj), { expires: 7, path: '/' });
+                    let PAY = 0;
+                    for (let key in cookieObj) {
+                        let good = cookieObj[key];
+                        PAY += parseInt(good.price) * parseInt(good.num);
+                        // console.log(PAY)
+                    }
+
+                    $(this).next().html(cookieObj[good_id].num);
+                    $(this).parent().next().html(cookieObj[good_id].num * cookieObj[good_id].price);
+
+                    $('#total').html(PAY);
+
+                })
+
+                $('.plus').on('click', function () {
+
+                    // 获取商品id
+                    let good_id = $(this).parent().parent().attr('data-good-id');
+                    // console.log(good_id);
+
+                    // 找cookie中的good_id--
+                    let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                    let cookieObj = convertCookieStrToCookieObj(cookieStr);
+                    // console.log(cookieObj[good_id].num)
+                    cookieObj[good_id].num++;
+
+
+                    $.cookie('carts', JSON.stringify(cookieObj), { expires: 7, path: '/' });
+                    let PAY = 0;
+                    for (let key in cookieObj) {
+                        let good = cookieObj[key];
+                        PAY += parseInt(good.price) * parseInt(good.num);
+                        // console.log(PAY)
+                    }
+
+                    $(this).prev().html(cookieObj[good_id].num);
+                    $(this).parent().next().html(cookieObj[good_id].num * cookieObj[good_id].price);
+
+                    $('#total').html(PAY);
+
+                })
+
+                $('.del').on('click', function () {
+
+                    // 获取商品id
+                    let good_id = $(this).parent().parent().attr('data-good-id');
+                    // console.log(good_id);
+
+                    // 找cookie中的good_id--
+                    let cookieStr = $.cookie('carts') ? $.cookie('carts') : '';
+                    let cookieObj = convertCookieStrToCookieObj(cookieStr);
+                    // console.log(cookieObj[good_id].num)
+                    delete cookieObj[good_id];
+
+
+                    $.cookie('carts', JSON.stringify(cookieObj), { expires: 7, path: '/' });
+
+                    let PAY = 0;
+                    for (let key in cookieObj) {
+                        let good = cookieObj[key];
+                        PAY += parseInt(good.price) * parseInt(good.num);
+                        // console.log(PAY)
+                    }
+
+                    $(this).parent().parent().remove();
+                    $('#total').html(PAY);
+
+                })
+            }
+        }
+
+        new Cart();
+
+
+
+    </script>
+</body>
+
+</html>
